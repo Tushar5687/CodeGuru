@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Linked List - Data Structure</title>
+  <style>
+    html {
+      scroll-behavior: smooth;
+
+      /* Variables For Storing Colors */
+      --primary-clr: #208245;
+      --primary-medium-clr: #d8e9df;
+      --primary-light-clr: #edfaf1;
+      --bg-clr-1: #ffffff;
+      --dark-heading-clr: #232d39;
+      --dark-text-clr: #6c757d;
+      --light-heading-clr: #efefef;
+      --light-text-clr: #cecece;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--primary-light-clr);
+    }
+
+    button.btn, .doubt-btn {
+      padding: 10px 18px;
+      background-color: var(--primary-clr);
+      color: var(--light-heading-clr);
+      font-size: 15px;
+      border: 1px solid transparent;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s;
+      margin-top: 20px;
+    }
+
+    button.btn:hover, .doubt-btn:hover {
+      background-color: var(--light-heading-clr);
+      color: var(--primary-clr);
+      border: 1px solid var(--primary-clr);
+    }
+
+    .content-container {
+      max-width: 1200px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background-color: var(--bg-clr-1);
+      border-radius: 8px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .section-header h1 {
+      font-size: 32px;
+      letter-spacing: 1px;
+      color: var(--dark-heading-clr);
+      margin-bottom: 20px;
+      position: relative;
+    }
+    .section-header h1::before {
+      position: absolute;
+      content: '';
+      width: 100px;
+      height: 1px;
+      left: 0;
+      top: calc(100% + 5px);
+      background-color: var(--dark-text-clr);
+    }
+    .section-header h1::after {
+      position: absolute;
+      content: '';
+      width: 50px;
+      height: 3px;
+      left: 0;
+      top: calc(100% + 4px);
+      background-color: var(--primary-clr);
+    }
+
+    .section-header p {
+      color: var(--dark-text-clr);
+      margin-bottom: 40px;
+      max-width: 700px;
+      line-height: 1.6;
+    }
+
+    .code-block {
+      background-color: #f8f9fa;
+      border-radius: 8px;
+      padding: 1rem;
+      margin: 2rem 0;
+      font-family: 'Courier New', Courier, monospace;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+    ul {
+      padding-left: 20px;
+      color: var(--dark-text-clr);
+    }
+
+    .content-container > h2 {
+      margin-top: 30px;
+      font-size: 28px;
+      color: var(--dark-heading-clr);
+    }
+
+    .content-container > p {
+      color: var(--dark-text-clr);
+      font-size: 16px;
+    }
+
+    .btn-container {
+      text-align: center;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <section class="content-container">
+    <div class="section-header">
+      <h1>Linked List - Data Structure</h1>
+      <p>A linked list is a linear data structure where each element (node) contains a reference (or link) to the next element in the sequence. It provides dynamic memory allocation and allows efficient insertion and deletion of elements.</p>
+    </div>
+
+    <h2>What is a Linked List?</h2>
+    <p>A linked list is a collection of nodes. Each node contains two parts: the data and a reference to the next node. There are several types of linked lists, including singly linked lists, doubly linked lists, and circular linked lists.</p>
+
+    <h2>Linked List Implementation in Different Languages</h2>
+
+    <h3>1. C++ Linked List Example</h3>
+    <div class="code-block">
+      <pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Node {
+public:
+    int data;
+    Node* next;
+    Node(int val) : data(val), next(nullptr) {}
+};
+
+void printList(Node* head) {
+    Node* temp = head;
+    while (temp != nullptr) {
+        cout &lt;&lt; temp->data &lt;&lt; " ";
+        temp = temp->next;
+    }
+    cout &lt;&lt; endl;
+}
+
+int main() {
+    Node* head = new Node(10);
+    head->next = new Node(20);
+    head->next->next = new Node(30);
+
+    printList(head);  // Output: 10 20 30
+    return 0;
+}
+      </pre>
+    </div>
+
+    <h3>2. Java Linked List Example</h3>
+    <div class="code-block">
+      <pre>
+class Node {
+    int data;
+    Node next;
+
+    Node(int data) {
+        this.data = data;
+        this.next = null;
+    }
+}
+
+public class LinkedList {
+    public static void main(String[] args) {
+        Node head = new Node(10);
+        head.next = new Node(20);
+        head.next.next = new Node(30);
+
+        printList(head);  // Output: 10 20 30
+    }
+
+    public static void printList(Node head) {
+        Node temp = head;
+        while (temp != null) {
+            System.out.print(temp.data + " ");
+            temp = temp.next;
+        }
+        System.out.println();
+    }
+}
+      </pre>
+    </div>
+
+    <h3>3. Python Linked List Example</h3>
+    <div class="code-block">
+      <pre>
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+def print_list(head):
+    temp = head
+    while temp:
+        print(temp.data, end=" ")
+        temp = temp.next
+    print()
+
+head = Node(10)
+head.next = Node(20)
+head.next.next = Node(30)
+
+print_list(head)  # Output: 10 20 30
+      </pre>
+    </div>
+
+    <div class="btn-container">
+      <a href="12.Ai ChatBot/index.html"><button class="doubt-btn" onclick="askDoubt()">Ask a Doubt</button></a>
+    </div>
+
+    <div class="btn-container">
+      <a href="llquiz.html"><button class="btn" onclick="startQuiz()">Take Quiz</button></a>
+    </div>
+  </section>
+
+  <script>
+    function askDoubt() {
+      window.location.href = '12.Ai ChatBot/index.html';
+    }
+
+    function startQuiz() {
+      window.location.href = 'llquiz.html';
+    }
+  </script>
+</body>
+</html>

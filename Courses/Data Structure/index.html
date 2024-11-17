@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learn Data Structures</title>
+  <style>
+    html {
+      scroll-behavior: smooth;
+      
+      /* Variables For Storing Colors */
+      --primary-clr: #208245;
+      --primary-medium-clr: #d8e9df;
+      --primary-light-clr: #edfaf1;
+      --bg-clr-1: #ffffff;
+      --dark-heading-clr: #232d39;
+      --dark-text-clr: #6c757d;
+      --light-heading-clr: #efefef;
+      --light-text-clr: #cecece;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--primary-light-clr);
+      color: var(--dark-text-clr);
+    }
+
+    #topic-selection {
+      text-align: center;
+      padding: 2rem;
+      background-color: var(--bg-clr-1);
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      max-width: 1200px;
+      margin: 2rem auto;
+    }
+
+    #topic-selection h1 {
+      color: var(--dark-heading-clr);
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    #topic-selection p {
+      color: var(--dark-text-clr);
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .topics {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      justify-items: center;
+    }
+
+    .topic-card {
+      background-color: var(--primary-medium-clr);
+      border-radius: 8px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 1.5rem;
+      width: 100%;
+      max-width: 300px;
+      text-align: left;
+      transition: transform 0.3s;
+    }
+
+    .topic-card:hover {
+      transform: scale(1.05);
+    }
+
+    .topic-card h2 {
+      color: var(--dark-heading-clr);
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .topic-card p {
+      color: var(--dark-text-clr);
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    button.btn {
+      padding: 10px 18px;
+      background-color: var(--primary-clr);
+      color: var(--light-heading-clr);
+      font-size: 15px;
+      border: 1px solid transparent;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    button.btn:hover {
+      background-color: var(--light-heading-clr);
+      color: var(--primary-clr);
+      border: 1px solid var(--primary-clr);
+    }
+  </style>
+</head>
+<body>
+
+  <section id="topic-selection">
+    <h1>Learn Data Structures</h1>
+    <p>Select a topic to explore and practice.</p>
+
+    <div class="topics">
+      <div class="topic-card">
+        <h2>Arrays</h2>
+       <p>Learn the basics of arrays and their operations.</p>
+       <a href="arrcont.html"> <button class="btn" onclick="navigateToContent('Arrays')">Start Learning</button>
+    </a>  </div>
+      <div class="topic-card">
+        <h2>Linked Lists</h2>
+      - <p>Master singly and doubly linked lists with examples.</p>
+        <a href="llcont.html"> <button class="btn" onclick="navigateToContent('Linked Lists')">Start Learning</button>
+      </a>  </div>
+      <div class="topic-card">
+        <h2>Binary Trees</h2>
+ <p>Understand the fundamentals of tree data structures.</p>
+       <a href="btreecont.html"><button class="btn" onclick="navigateToContent('Binary Trees')">Start Learning</button>
+       </a>   </div>
+    </div>
+  </section>
+
+  <script>
+    function navigateToContent(topic) {
+      alert(`Navigating to content for: ${topic}`);
+      // Replace with actual navigation logic if needed
+      // window.location.href = `content.html?topic=${encodeURIComponent(topic)}`;
+    }
+  </script>
+
+</body>
+</html>

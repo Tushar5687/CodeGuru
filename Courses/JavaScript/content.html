@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learn JavaScript - Arrays</title>
+  <style>
+    html {
+      scroll-behavior: smooth;
+      
+      /* Variables For Storing Colors */
+      --primary-clr: #208245;
+      --primary-medium-clr: #d8e9df;
+      --primary-light-clr: #edfaf1;
+      --bg-clr-1: #ffffff;
+      --dark-heading-clr: #232d39;
+      --dark-text-clr: #6c757d;
+      --light-heading-clr: #efefef;
+      --light-text-clr: #cecece;
+    }
+    /* Global Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--primary-light-clr);
+    }
+
+    button.btn, .doubt-btn {
+      padding: 10px 18px;
+      background-color: var(--primary-clr);
+      color: var(--light-heading-clr);
+      font-size: 15px;
+      border: 1px solid transparent;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s;
+      margin-top: 20px;
+    }
+
+    button.btn:hover, .doubt-btn:hover {
+      background-color: var(--light-heading-clr);
+      color: var(--primary-clr);
+      border: 1px solid var(--primary-clr);
+    }
+
+    .content-container {
+      max-width: 1200px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background-color: var(--bg-clr-1);
+      border-radius: 8px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .section-header h1 {
+      font-size: 32px;
+      letter-spacing: 1px;
+      color: var(--dark-heading-clr);
+      margin-bottom: 20px;
+      position: relative;
+    }
+    .section-header h1::before {
+      position: absolute;
+      content: '';
+      width: 100px;
+      height: 1px;
+      left: 0;
+      top: calc(100% + 5px);
+      background-color: var(--dark-text-clr);
+    }
+    .section-header h1::after {
+      position: absolute;
+      content: '';
+      width: 50px;
+      height: 3px;
+      left: 0;
+      top: calc(100% + 4px);
+      background-color: var(--primary-clr);
+    }
+
+    .section-header p {
+      color: var(--dark-text-clr);
+      margin-bottom: 40px;
+      max-width: 700px;
+      line-height: 1.6;
+    }
+
+    /* Code Block Styling */
+    .code-block {
+      background-color: #f8f9fa;
+      border-radius: 8px;
+      padding: 1rem;
+      margin: 2rem 0;
+      font-family: 'Courier New', Courier, monospace;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+    ul {
+      padding-left: 20px;
+      color: var(--dark-text-clr);
+    }
+
+    .content-container > h2 {
+      margin-top: 30px;
+      font-size: 28px;
+      color: var(--dark-heading-clr);
+    }
+
+    .content-container > p {
+      color: var(--dark-text-clr);
+      font-size: 16px;
+    }
+
+    .btn-container {
+      text-align: center;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <section class="content-container">
+    <!-- Topic Header -->
+    <div class="section-header">
+      <h1>JavaScript Arrays</h1>
+      <p>In this section, you will learn about JavaScript arrays, how to create them, and perform various operations on them. Arrays are one of the most important data structures in programming and are widely used to store and manage collections of data.</p>
+    </div>
+
+    <!-- Array Introduction -->
+    <h2>Introduction to Arrays</h2>
+    <p>Arrays are used to store multiple values in a single variable. An array can hold elements of any data type, including numbers, strings, objects, and even other arrays. Arrays in JavaScript are dynamic, meaning their size can change as needed.</p>
+
+    <!-- Creating Arrays -->
+    <h2>Creating Arrays</h2>
+    <p>There are two main ways to create arrays in JavaScript:</p>
+    <ul>
+      <li><strong>Using the array literal syntax:</strong> `let fruits = ['Apple', 'Banana', 'Cherry'];`</li>
+      <li><strong>Using the Array constructor:</strong> `let fruits = new Array('Apple', 'Banana', 'Cherry');`</li>
+    </ul>
+
+    <!-- Array Operations -->
+    <h2>Array Operations</h2>
+    <p>JavaScript arrays come with built-in methods that allow you to perform various operations. Here are some commonly used methods:</p>
+    <ul>
+      <li><strong>push():</strong> Adds an element to the end of an array.</li>
+      <li><strong>pop():</strong> Removes the last element from an array.</li>
+      <li><strong>shift():</strong> Removes the first element from an array.</li>
+      <li><strong>unshift():</strong> Adds an element to the beginning of an array.</li>
+      <li><strong>length:</strong> Returns the number of elements in an array.</li>
+    </ul>
+
+    <!-- Example Code -->
+    <h2>Example: Working with Arrays</h2>
+    <div class="code-block">
+      <pre>
+        <code>
+          let fruits = ['Apple', 'Banana', 'Cherry'];
+          console.log(fruits[0]); // Apple
+          
+          fruits.push('Orange'); // Add Orange to the end
+          console.log(fruits); // ['Apple', 'Banana', 'Cherry', 'Orange']
+          
+          fruits.pop(); // Remove the last element
+          console.log(fruits); // ['Apple', 'Banana', 'Cherry']
+        </code>
+      </pre>
+    </div>
+
+    <!-- Array Methods Example -->
+    <h2>Example: Array Methods</h2>
+    <p>Let's see an example that demonstrates various array methods:</p>
+    <div class="code-block">
+      <pre>
+        <code>
+          let numbers = [10, 20, 30];
+          console.log(numbers.length); // 3
+          
+          numbers.shift(); // Removes the first element (10)
+          console.log(numbers); // [20, 30]
+          
+          numbers.unshift(5); // Adds 5 to the beginning
+          console.log(numbers); // [5, 20, 30]
+        </code>
+      </pre>
+    </div>
+
+    <!-- Doubt Button -->
+    <div class="btn-container">
+      <a href="12.Ai ChatBot/index.html"><button class="doubt-btn" onclick="askDoubt()">Ask a Doubt</button></a>
+    </div>
+
+    <!-- Quiz Button -->
+    <div class="btn-container">
+      <a href="quiz.html"><button class="btn" onclick="startQuiz()">Take Quiz</button></a>
+    </div>
+  </section>
+
+  <script>
+    function askDoubt() {
+      alert("Please reach out for assistance with this topic!");
+    }
+
+    function startQuiz() {
+      // Navigate to the quiz page or section (update with actual logic)
+      alert("Navigating to the quiz...");
+      // Example navigation (replace with actual URL or logic):
+      // window.location.href = "quiz.html";
+    }
+  </script>
+
+</body>
+</html>

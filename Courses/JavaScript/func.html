@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learn JavaScript - Functions</title>
+  <style>
+    html {
+      scroll-behavior: smooth;
+      /* Variables for Colors */
+      --primary-clr: #208245;
+      --primary-medium-clr: #d8e9df;
+      --primary-light-clr: #edfaf1;
+      --bg-clr-1: #ffffff;
+      --dark-heading-clr: #232d39;
+      --dark-text-clr: #6c757d;
+      --light-heading-clr: #efefef;
+      --light-text-clr: #cecece;
+    }
+    /* Global Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--primary-light-clr);
+    }
+
+    button.btn, .doubt-btn {
+      padding: 10px 18px;
+      background-color: var(--primary-clr);
+      color: var(--light-heading-clr);
+      font-size: 15px;
+      border: 1px solid transparent;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s;
+      margin-top: 20px;
+    }
+
+    button.btn:hover, .doubt-btn:hover {
+      background-color: var(--light-heading-clr);
+      color: var(--primary-clr);
+      border: 1px solid var(--primary-clr);
+    }
+
+    .content-container {
+      max-width: 1200px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background-color: var(--bg-clr-1);
+      border-radius: 8px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .section-header h1 {
+      font-size: 32px;
+      letter-spacing: 1px;
+      color: var(--dark-heading-clr);
+      margin-bottom: 20px;
+      position: relative;
+    }
+    .section-header h1::before {
+      position: absolute;
+      content: '';
+      width: 100px;
+      height: 1px;
+      left: 0;
+      top: calc(100% + 5px);
+      background-color: var(--dark-text-clr);
+    }
+    .section-header h1::after {
+      position: absolute;
+      content: '';
+      width: 50px;
+      height: 3px;
+      left: 0;
+      top: calc(100% + 4px);
+      background-color: var(--primary-clr);
+    }
+
+    .section-header p {
+      color: var(--dark-text-clr);
+      margin-bottom: 40px;
+      max-width: 700px;
+      line-height: 1.6;
+    }
+
+    /* Code Block Styling */
+    .code-block {
+      background-color: #f8f9fa;
+      border-radius: 8px;
+      padding: 1rem;
+      margin: 2rem 0;
+      font-family: 'Courier New', Courier, monospace;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+    ul {
+      padding-left: 20px;
+      color: var(--dark-text-clr);
+    }
+
+    .content-container > h2 {
+      margin-top: 30px;
+      font-size: 28px;
+      color: var(--dark-heading-clr);
+    }
+
+    .content-container > p {
+      color: var(--dark-text-clr);
+      font-size: 16px;
+    }
+
+    .btn-container {
+      text-align: center;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <section class="content-container">
+    <!-- Topic Header -->
+    <div class="section-header">
+      <h1>JavaScript Functions</h1>
+      <p>In this section, you will learn about JavaScript functions, how to create, use, and manipulate them. Functions are one of the most fundamental building blocks of JavaScript programming, allowing you to execute a block of code when called upon.</p>
+    </div>
+
+    <!-- Function Introduction -->
+    <h2>Introduction to Functions</h2>
+    <p>In JavaScript, a function is a block of code designed to perform a particular task. Functions allow us to avoid repetition, reuse code, and make our programs more modular and organized. Functions can take inputs, perform operations, and return outputs.</p>
+
+    <!-- Creating Functions -->
+    <h2>Creating Functions</h2>
+    <p>Functions can be created in JavaScript in several ways:</p>
+    <ul>
+      <li><strong>Function Declaration:</strong> This is the most common method of creating a function.</li>
+      <pre><code>function greet() {
+  console.log('Hello, World!');
+}</code></pre>
+      <li><strong>Function Expression:</strong> A function can also be created by assigning it to a variable.</li>
+      <pre><code>const greet = function() {
+  console.log('Hello, World!');
+};</code></pre>
+      <li><strong>Arrow Function:</strong> A more concise way to define functions introduced in ES6.</li>
+      <pre><code>const greet = () => {
+  console.log('Hello, World!');
+};</code></pre>
+    </ul>
+
+    <!-- Calling Functions -->
+    <h2>Calling Functions</h2>
+    <p>Once a function is defined, it can be called or invoked by using its name followed by parentheses.</p>
+    <ul>
+      <li><strong>Basic Function Call:</strong></li>
+      <pre><code>greet();</code></pre>
+      <li><strong>With Arguments:</strong> Functions can accept parameters or arguments, which are values passed into the function.</li>
+      <pre><code>function greet(name) {
+  console.log('Hello, ' + name);
+}
+greet('Alice'); // Output: Hello, Alice</code></pre>
+    </ul>
+
+    <!-- Function Parameters and Return Values -->
+    <h2>Function Parameters and Return Values</h2>
+    <p>Functions in JavaScript can accept parameters (also known as arguments), which allow you to pass data into the function. Functions can also return a value using the <code>return</code> keyword.</p>
+    <ul>
+      <li><strong>Function Parameters:</strong> Parameters are placeholders for the values that are passed into a function.</li>
+      <pre><code>function add(a, b) {
+  return a + b;
+}
+console.log(add(3, 5)); // Output: 8</code></pre>
+      <li><strong>Return Values:</strong> Functions can return values back to the caller.</li>
+      <pre><code>function square(number) {
+  return number * number;
+}
+console.log(square(4)); // Output: 16</code></pre>
+    </ul>
+
+    <!-- Example Code -->
+    <h2>Example: Working with Functions</h2>
+    <div class="code-block">
+      <pre><code>
+function greet(name) {
+  console.log('Hello, ' + name);
+}
+
+function add(a, b) {
+  return a + b;
+}
+
+greet('Alice'); // Output: Hello, Alice
+console.log(add(3, 5)); // Output: 8
+      </code></pre>
+    </div>
+
+    <!-- Function Scope -->
+    <h2>Function Scope</h2>
+    <p>Variables defined inside a function are local to that function, and cannot be accessed from outside the function. This is called local scope. However, variables defined outside a function are in the global scope, and can be accessed by any function.</p>
+    <ul>
+      <li><strong>Local Scope:</strong> Variables declared within a function are local to that function.</li>
+      <pre><code>function example() {
+  let x = 10; // x is local to this function
+  console.log(x);
+}
+example();</code></pre>
+      <li><strong>Global Scope:</strong> Variables declared outside any function are accessible throughout the script.</li>
+      <pre><code>let y = 20; // y is global
+function example() {
+  console.log(y); // y can be accessed inside the function
+}
+example();</code></pre>
+    </ul>
+
+    <!-- Example: Scope in Action -->
+    <h2>Example: Scope in Action</h2>
+    <div class="code-block">
+      <pre><code>
+let y = 20; // Global scope
+
+function example() {
+  let x = 10; // Local scope
+  console.log(x); // Output: 10
+  console.log(y); // Output: 20
+}
+
+example();
+console.log(x); // Error: x is not defined (because it's local to the function)
+      </code></pre>
+    </div>
+
+    <!-- Recursion -->
+    <h2>Recursion</h2>
+    <p>Recursion occurs when a function calls itself. Recursive functions are commonly used to solve problems that can be broken down into smaller subproblems, such as calculating factorials or traversing tree structures.</p>
+    <ul>
+      <li><strong>Recursive Function Example:</strong> Here’s an example of a simple recursive function to calculate the factorial of a number.</li>
+      <pre><code>function factorial(n) {
+  if (n === 0) {
+    return 1;
+  }
+  return n * factorial(n - 1);
+}
+console.log(factorial(5)); // Output: 120</code></pre>
+    </ul>
+
+    <!-- Higher-Order Functions -->
+    <h2>Higher-Order Functions</h2>
+    <p>In JavaScript, functions can accept other functions as arguments, return functions, or do both. These are called higher-order functions. For example, <code>map()</code>, <code>filter()</code>, and <code>reduce()</code> are higher-order functions in JavaScript.</p>
+    <ul>
+      <li><strong>Example of Higher-Order Function:</strong></li>
+      <pre><code>function greet(name, callback) {
+  console.log('Hello, ' + name);
+  callback();
+}
+
+greet('Alice', function() {
+  console.log('How are you?');
+});</code></pre>
+    </ul>
+
+    <!-- Doubt Button -->
+    <div class="btn-container">
+      <a href="12.Ai ChatBot/index.html"><button class="doubt-btn" onclick="askDoubt()">Ask a Doubt</button></a>
+    </div>
+
+    <!-- Quiz Button -->
+    <div class="btn-container">
+      <a href="funquiz.html"><button class="btn" onclick="startQuiz()">Take Quiz</button></a>
+    </div>
+  </section>
+
+  <script>
+    function askDoubt() {
+      alert("Please reach out for assistance with this topic!");
+    }
+
+    function startQuiz() {
+      alert("Navigating to the quiz...");
+    }
+  </script>
+
+</body>
+</html>

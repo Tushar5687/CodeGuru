@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jQuery Selectors</title>
+  <style>
+    html {
+      scroll-behavior: smooth;
+      --primary-clr: #208245;
+      --primary-medium-clr: #d9e5f7;
+      --primary-light-clr: #eef4fd;
+      --bg-clr-1: #ffffff;
+      --dark-heading-clr: #232d39;
+      --dark-text-clr: #6c757d;
+      --light-heading-clr: #efefef;
+      --light-text-clr: #cecece;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--primary-light-clr);
+    }
+
+    button.btn, .doubt-btn {
+      padding: 10px 18px;
+      background-color: var(--primary-clr);
+      color: var(--light-heading-clr);
+      font-size: 15px;
+      border: 1px solid transparent;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s;
+      margin-top: 20px;
+    }
+
+    button.btn:hover, .doubt-btn:hover {
+      background-color: var(--light-heading-clr);
+      color: var(--primary-clr);
+      border: 1px solid var(--primary-clr);
+    }
+
+    .content-container {
+      max-width: 1200px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background-color: var(--bg-clr-1);
+      border-radius: 8px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .section-header h1 {
+      font-size: 32px;
+      letter-spacing: 1px;
+      color: var(--dark-heading-clr);
+      margin-bottom: 20px;
+      position: relative;
+    }
+    .section-header h1::before {
+      position: absolute;
+      content: '';
+      width: 100px;
+      height: 1px;
+      left: 0;
+      top: calc(100% + 5px);
+      background-color: var(--dark-text-clr);
+    }
+    .section-header h1::after {
+      position: absolute;
+      content: '';
+      width: 50px;
+      height: 3px;
+      left: 0;
+      top: calc(100% + 4px);
+      background-color: var(--primary-clr);
+    }
+
+    .section-header p {
+      color: var(--dark-text-clr);
+      margin-bottom: 40px;
+      max-width: 700px;
+      line-height: 1.6;
+    }
+
+    .code-block {
+      background-color: #f8f9fa;
+      border-radius: 8px;
+      padding: 1rem;
+      margin: 2rem 0;
+      font-family: 'Courier New', Courier, monospace;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+    ul {
+      padding-left: 20px;
+      color: var(--dark-text-clr);
+    }
+
+    .content-container > h2 {
+      margin-top: 30px;
+      font-size: 28px;
+      color: var(--dark-heading-clr);
+    }
+
+    .content-container > p {
+      color: var(--dark-text-clr);
+      font-size: 16px;
+    }
+
+    .btn-container {
+      text-align: center;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <section class="content-container">
+    <div class="section-header">
+      <h1>Basics of Selectors in jQuery</h1>
+      <p>jQuery selectors are used to find and manipulate HTML elements based on their name, ID, classes, types, attributes, and more.</p>
+    </div>
+
+    <h2>What are jQuery Selectors?</h2>
+    <p>Selectors in jQuery are used to "select" and work with specific HTML elements. They are similar to CSS selectors but more powerful with additional filters and methods.</p>
+
+    <h2>Common Selectors</h2>
+    <ul>
+      <li><code>$("element")</code>: Selects all elements with the specified tag name.</li>
+      <li><code>$("#id")</code>: Selects the element with the specified ID.</li>
+      <li><code>$(".class")</code>: Selects all elements with the specified class.</li>
+      <li><code>$("[attribute=value]")</code>: Selects elements with the specified attribute value.</li>
+    </ul>
+
+    <h3>Example: Select by ID</h3>
+    <div class="code-block">
+      <pre>
+$(document).ready(function() {
+  $("#example").css("color", "blue");
+});
+      </pre>
+    </div>
+
+    <h3>Example: Select by Class</h3>
+    <div class="code-block">
+      <pre>
+$(document).ready(function() {
+  $(".highlight").css("background-color", "yellow");
+});
+      </pre>
+    </div>
+
+    <h3>Example: Select by Attribute</h3>
+    <div class="code-block">
+      <pre>
+$(document).ready(function() {
+  $("[type='text']").val("Default Text");
+});
+      </pre>
+    </div>
+
+    <h3>Example: Select by Element</h3>
+    <div class="code-block">
+      <pre>
+$(document).ready(function() {
+  $("p").css("font-size", "18px");
+});
+      </pre>
+    </div>
+
+    <div class="btn-container">
+      <a href="12.Ai ChatBot/index.html"><button class="doubt-btn">Ask a Doubt</button></a>
+    </div>
+
+    <div class="btn-container">
+      <a href="selquiz.html"><button class="btn">Take Quiz</button></a>
+    </div>
+  </section>
+
+  <script>
+    function askDoubt() {
+      window.location.href = '12.Ai ChatBot/index.html';
+    }
+
+    function startQuiz() {
+      window.location.href = 'selquiz.html';
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arrays - Data Structure</title>
+  <style>
+    html {
+      scroll-behavior: smooth;
+      
+      /* Variables For Storing Colors */
+      --primary-clr: #208245;
+      --primary-medium-clr: #d8e9df;
+      --primary-light-clr: #edfaf1;
+      --bg-clr-1: #ffffff;
+      --dark-heading-clr: #232d39;
+      --dark-text-clr: #6c757d;
+      --light-heading-clr: #efefef;
+      --light-text-clr: #cecece;
+    }
+    /* Global Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--primary-light-clr);
+    }
+
+    button.btn, .doubt-btn {
+      padding: 10px 18px;
+      background-color: var(--primary-clr);
+      color: var(--light-heading-clr);
+      font-size: 15px;
+      border: 1px solid transparent;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s;
+      margin-top: 20px;
+    }
+
+    button.btn:hover, .doubt-btn:hover {
+      background-color: var(--light-heading-clr);
+      color: var(--primary-clr);
+      border: 1px solid var(--primary-clr);
+    }
+
+    .content-container {
+      max-width: 1200px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background-color: var(--bg-clr-1);
+      border-radius: 8px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .section-header h1 {
+      font-size: 32px;
+      letter-spacing: 1px;
+      color: var(--dark-heading-clr);
+      margin-bottom: 20px;
+      position: relative;
+    }
+    .section-header h1::before {
+      position: absolute;
+      content: '';
+      width: 100px;
+      height: 1px;
+      left: 0;
+      top: calc(100% + 5px);
+      background-color: var(--dark-text-clr);
+    }
+    .section-header h1::after {
+      position: absolute;
+      content: '';
+      width: 50px;
+      height: 3px;
+      left: 0;
+      top: calc(100% + 4px);
+      background-color: var(--primary-clr);
+    }
+
+    .section-header p {
+      color: var(--dark-text-clr);
+      margin-bottom: 40px;
+      max-width: 700px;
+      line-height: 1.6;
+    }
+
+    /* Code Block Styling */
+    .code-block {
+      background-color: #f8f9fa;
+      border-radius: 8px;
+      padding: 1rem;
+      margin: 2rem 0;
+      font-family: 'Courier New', Courier, monospace;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+    ul {
+      padding-left: 20px;
+      color: var(--dark-text-clr);
+    }
+
+    .content-container > h2 {
+      margin-top: 30px;
+      font-size: 28px;
+      color: var(--dark-heading-clr);
+    }
+
+    .content-container > p {
+      color: var(--dark-text-clr);
+      font-size: 16px;
+    }
+
+    .btn-container {
+      text-align: center;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <section class="content-container">
+    <!-- Topic Header -->
+    <div class="section-header">
+      <h1>Arrays - Data Structure</h1>
+      <p>Arrays are a fundamental data structure used in almost every programming language. They allow you to store multiple values in a single variable, making it easier to manage and manipulate data efficiently.</p>
+    </div>
+
+    <!-- What is an Array -->
+    <h2>What is an Array?</h2>
+    <p>An array is a data structure that holds multiple values, usually of the same data type, and stores them in contiguous memory locations. Each value is accessed by an index, which starts at 0. Arrays are useful for representing lists or sequences of values.</p>
+
+    <!-- Array Implementation -->
+    <h2>Array Implementation in Different Languages</h2>
+
+    <h3>1. C++ Array Example</h3>
+    <p>In C++, an array is a collection of elements of the same type, stored in contiguous memory. Here’s how you can define and work with arrays in C++:</p>
+    <div class="code-block">
+      <pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    int arr[] = {10, 20, 30, 40, 50};
+    cout &lt;&lt; "First element: " &lt;&lt; arr[0] &lt;&lt; endl;  // Output: 10
+    cout &lt;&lt; "Third element: " &lt;&lt; arr[2] &lt;&lt; endl;  // Output: 30
+    arr[1] = 25;  // Modify second element
+    cout &lt;&lt; "Modified second element: " &lt;&lt; arr[1] &lt;&lt; endl;  // Output: 25
+    for(int i = 0; i &lt; 5; i++) {
+        cout &lt;&lt; arr[i] &lt;&lt; " ";
+    }
+    cout &lt;&lt; endl;  // Output: 10 25 30 40 50
+    return 0;
+}
+      </pre>
+    </div>
+
+    <h3>2. Java Array Example</h3>
+    <p>In Java, arrays are objects that store elements of the same data type. Here’s an example demonstrating array operations:</p>
+    <div class="code-block">
+      <pre>
+public class Main {
+    public static void main(String[] args) {
+        int[] arr = {10, 20, 30, 40, 50};
+        System.out.println("First element: " + arr[0]);  // Output: 10
+        System.out.println("Third element: " + arr[2]);  // Output: 30
+        arr[1] = 25;  // Change second element to 25
+        System.out.println("Modified second element: " + arr[1]);  // Output: 25
+        for (int i = 0; i &lt; arr.length; i++) {
+            System.out.print(arr[i] + " ");
+        }
+        System.out.println();  // Output: 10 25 30 40 50
+    }
+}
+      </pre>
+    </div>
+
+    <h3>3. Python Array Example</h3>
+    <p>In Python, arrays are often implemented using lists, which are dynamic and can store items of different types. Here's how you can work with arrays in Python:</p>
+    <div class="code-block">
+      <pre>
+# Python array example
+arr = [10, 20, 30, 40, 50]
+
+# Accessing elements
+print("First element:", arr[0])  # Output: 10
+print("Third element:", arr[2])  # Output: 30
+
+# Modifying an element
+arr[1] = 25  # Change second element to 25
+print("Modified second element:", arr[1])  # Output: 25
+
+# Loop through the array to print elements
+print("Array elements:", end=" ")
+for element in arr:
+    print(element, end=" ")  # Output: 10 25 30 40 50
+print()
+      </pre>
+    </div>
+
+    <!-- Advantages & Disadvantages -->
+    <h2>Advantages and Disadvantages of Arrays</h2>
+
+    <h3>Advantages:</h3>
+    <ul>
+      <li>Fast and direct access to elements using their index.</li>
+      <li>Efficient memory usage when storing a fixed number of elements.</li>
+      <li>Simplifies the implementation of algorithms that involve collections of data.</li>
+    </ul>
+
+    <h3>Disadvantages:</h3>
+    <ul>
+      <li>Fixed size: Once an array is created, its size cannot be changed.</li>
+      <li>Adding or removing elements from the middle or beginning of an array is inefficient.</li>
+      <li>Memory may be wasted if the array is not fully utilized.</li>
+    </ul>
+    
+    <!-- Doubt Button -->
+    <div class="btn-container">
+      <a href="12.Ai ChatBot/index.html"><button class="doubt-btn" onclick="askDoubt()">Ask a Doubt</button></a>
+    </div>
+
+    <!-- Quiz Button -->
+    <div class="btn-container">
+      <a href="arrquiz.html"><button class="btn" onclick="startQuiz()">Take Quiz</button></a>
+    </div>
+  </section>
+
+  <script>
+    function askDoubt() {
+      window.location.href = '12.Ai ChatBot/index.html';
+    }
+
+    function startQuiz() {
+      window.location.href = 'arrquiz.html';
+    }
+  </script>
+</body>
+</html>

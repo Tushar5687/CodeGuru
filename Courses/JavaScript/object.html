@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learn JavaScript - Objects</title>
+  <style>
+    html {
+      scroll-behavior: smooth;
+      /* Variables for Colors */
+      --primary-clr: #208245;
+      --primary-medium-clr: #d8e9df;
+      --primary-light-clr: #edfaf1;
+      --bg-clr-1: #ffffff;
+      --dark-heading-clr: #232d39;
+      --dark-text-clr: #6c757d;
+      --light-heading-clr: #efefef;
+      --light-text-clr: #cecece;
+    }
+    /* Global Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--primary-light-clr);
+    }
+
+    button.btn, .doubt-btn {
+      padding: 10px 18px;
+      background-color: var(--primary-clr);
+      color: var(--light-heading-clr);
+      font-size: 15px;
+      border: 1px solid transparent;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s;
+      margin-top: 20px;
+    }
+
+    button.btn:hover, .doubt-btn:hover {
+      background-color: var(--light-heading-clr);
+      color: var(--primary-clr);
+      border: 1px solid var(--primary-clr);
+    }
+
+    .content-container {
+      max-width: 1200px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background-color: var(--bg-clr-1);
+      border-radius: 8px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .section-header h1 {
+      font-size: 32px;
+      letter-spacing: 1px;
+      color: var(--dark-heading-clr);
+      margin-bottom: 20px;
+      position: relative;
+    }
+    .section-header h1::before {
+      position: absolute;
+      content: '';
+      width: 100px;
+      height: 1px;
+      left: 0;
+      top: calc(100% + 5px);
+      background-color: var(--dark-text-clr);
+    }
+    .section-header h1::after {
+      position: absolute;
+      content: '';
+      width: 50px;
+      height: 3px;
+      left: 0;
+      top: calc(100% + 4px);
+      background-color: var(--primary-clr);
+    }
+
+    .section-header p {
+      color: var(--dark-text-clr);
+      margin-bottom: 40px;
+      max-width: 700px;
+      line-height: 1.6;
+    }
+
+    /* Code Block Styling */
+    .code-block {
+      background-color: #f8f9fa;
+      border-radius: 8px;
+      padding: 1rem;
+      margin: 2rem 0;
+      font-family: 'Courier New', Courier, monospace;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+    ul {
+      padding-left: 20px;
+      color: var(--dark-text-clr);
+    }
+
+    .content-container > h2 {
+      margin-top: 30px;
+      font-size: 28px;
+      color: var(--dark-heading-clr);
+    }
+
+    .content-container > p {
+      color: var(--dark-text-clr);
+      font-size: 16px;
+    }
+
+    .btn-container {
+      text-align: center;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <section class="content-container">
+    <!-- Topic Header -->
+    <div class="section-header">
+      <h1>JavaScript Objects</h1>
+      <p>In this section, you will learn about JavaScript objects, how to create and manipulate them. Objects are key to JavaScript as they allow the organization of data in a structured way and are crucial in developing interactive web applications.</p>
+    </div>
+
+    <!-- Object Introduction -->
+    <h2>Introduction to Objects</h2>
+    <p>In JavaScript, an object is a standalone entity, with properties and types. It is similar to real-life objects, like a car, that have properties (e.g., color, model) and methods (e.g., drive, stop). Objects in JavaScript are used to store collections of data and more complex entities.</p>
+
+    <!-- Creating Objects -->
+    <h2>Creating Objects</h2>
+    <p>There are several ways to create objects in JavaScript:</p>
+    <ul>
+      <li><strong>Using Object Literals:</strong> This is the most common way to create objects. An object literal is enclosed in curly braces `{}`, and properties are defined using key-value pairs.</li>
+      <pre><code>let car = { brand: 'Toyota', model: 'Camry', year: 2020 };</code></pre>
+      <li><strong>Using the Object Constructor:</strong> This uses the built-in Object constructor.</li>
+      <pre><code>let car = new Object(); car.brand = 'Toyota'; car.model = 'Camry'; car.year = 2020;</code></pre>
+      <li><strong>Using Object.create():</strong> This allows you to create a new object with a specific prototype object.</li>
+      <pre><code>let car = Object.create(Object.prototype); car.brand = 'Toyota'; car.model = 'Camry'; car.year = 2020;</code></pre>
+    </ul>
+
+    <!-- Object Properties and Methods -->
+    <h2>Object Properties and Methods</h2>
+    <p>Properties of an object are values associated with the object. Methods are functions stored as properties within an object. Here is how you can access and define properties and methods:</p>
+
+    <ul>
+      <li><strong>Accessing Properties:</strong> You can access properties of an object using dot notation or bracket notation.</li>
+      <pre><code>let car = { brand: 'Toyota', model: 'Camry', year: 2020 }; console.log(car.brand); // 'Toyota'</code></pre>
+      <li><strong>Adding Properties:</strong> You can add properties to an object dynamically.</li>
+      <pre><code>car.color = 'Red';</code></pre>
+      <li><strong>Object Methods:</strong> Methods can be added to an object. These are functions defined inside the object.</li>
+      <pre><code>let car = { brand: 'Toyota', model: 'Camry', year: 2020, displayInfo: function() { console.log(this.brand + ' ' + this.model); }};</code></pre>
+    </ul>
+
+    <!-- Example Code -->
+    <h2>Example: Working with Objects</h2>
+    <div class="code-block">
+      <pre><code>
+let car = {
+  brand: 'Toyota',
+  model: 'Camry',
+  year: 2020,
+  displayInfo: function() {
+    console.log(this.brand + ' ' + this.model);
+  }
+};
+
+car.displayInfo(); // Output: Toyota Camry
+car.color = 'Red';
+console.log(car.color); // Output: Red
+      </code></pre>
+    </div>
+
+    <!-- Modifying Objects -->
+    <h2>Modifying Objects</h2>
+    <p>Objects in JavaScript can be modified by:</p>
+    <ul>
+      <li><strong>Changing Property Values:</strong> You can change the value of an existing property.</li>
+      <pre><code>car.year = 2022;</code></pre>
+      <li><strong>Deleting Properties:</strong> You can delete properties using the <code>delete</code> keyword.</li>
+      <pre><code>delete car.year;</code></pre>
+    </ul>
+
+    <!-- Example: Modifying Objects -->
+    <h2>Example: Modifying Objects</h2>
+    <div class="code-block">
+      <pre><code>
+let car = {
+  brand: 'Toyota',
+  model: 'Camry',
+  year: 2020
+};
+
+console.log(car.year); // 2020
+car.year = 2022; // Modify the year property
+console.log(car.year); // 2022
+
+delete car.model; // Delete the model property
+console.log(car.model); // undefined
+      </code></pre>
+    </div>
+
+    <!-- Object Inheritance -->
+    <h2>Object Inheritance</h2>
+    <p>JavaScript allows objects to inherit properties and methods from other objects. This is known as prototype inheritance. All objects in JavaScript have a prototype object, which can be used to share properties or methods among all instances of an object.</p>
+    <ul>
+      <li><strong>Prototype Chain:</strong> When trying to access a property or method, JavaScript first checks the object itself and then looks at its prototype, continuing up the prototype chain if necessary.</li>
+      <pre><code>function Car(brand, model, year) {
+  this.brand = brand;
+  this.model = model;
+  this.year = year;
+}
+
+Car.prototype.displayInfo = function() {
+  console.log(this.brand + ' ' + this.model);
+};
+
+let myCar = new Car('Toyota', 'Camry', 2020);
+myCar.displayInfo(); // Toyota Camry
+      </code></pre>
+    </ul>
+
+    <!-- Doubt Button -->
+    <div class="btn-container">
+      <a href="12.Ai ChatBot/index.html"><button class="doubt-btn" onclick="askDoubt()">Ask a Doubt</button></a>
+    </div>
+
+    <!-- Quiz Button -->
+    <div class="btn-container">
+      <a href="obquiz.html"><button class="btn" onclick="startQuiz()">Take Quiz</button></a>
+    </div>
+  </section>
+
+  <script>
+    function askDoubt() {
+      alert("Please reach out for assistance with this topic!");
+    }
+
+    function startQuiz() {
+      alert("Navigating to the quiz...");
+    }
+  </script>
+
+</body>
+</html>

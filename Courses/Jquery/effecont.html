@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jQuery Effects</title>
+  <style>
+    html {
+      scroll-behavior: smooth;
+      --primary-clr: #208245;
+      --primary-medium-clr: #d9e5f7;
+      --primary-light-clr: #eef4fd;
+      --bg-clr-1: #ffffff;
+      --dark-heading-clr: #232d39;
+      --dark-text-clr: #6c757d;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--primary-light-clr);
+    }
+
+    .content-container {
+      max-width: 1200px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background-color: var(--bg-clr-1);
+      border-radius: 8px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .section-header h1 {
+      font-size: 32px;
+      color: var(--dark-heading-clr);
+      margin-bottom: 20px;
+    }
+
+    .section-header p {
+      color: var(--dark-text-clr);
+      margin-bottom: 40px;
+    }
+
+    .example {
+      margin-top: 20px;
+      background-color: #f8f9fa;
+      padding: 15px;
+      border-radius: 5px;
+    }
+
+    button {
+      padding: 10px 15px;
+      margin: 10px 5px;
+      font-size: 14px;
+      border: none;
+      border-radius: 5px;
+      background-color: var(--primary-clr);
+      color: #fff;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #145ab6;
+    }
+
+    .box {
+      width: 200px;
+      height: 100px;
+      background-color: var(--primary-medium-clr);
+      margin: 15px auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-weight: bold;
+      border: 1px solid var(--primary-clr);
+      border-radius: 5px;
+    }
+
+    .btn-container {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .doubt-btn, .quiz-btn {
+      padding: 10px 18px;
+      background-color: var(--primary-clr);
+      color: white;
+      font-size: 15px;
+      border: 1px solid transparent;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s;
+      margin-top: 20px;
+    }
+
+    .doubt-btn:hover, .quiz-btn:hover {
+      background-color: #fff;
+      color: var(--primary-clr);
+      border: 1px solid var(--primary-clr);
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <section class="content-container">
+    <div class="section-header">
+      <h1>jQuery Effects</h1>
+      <p>Learn how to create visual effects in jQuery to enhance user interaction on your web pages.</p>
+    </div>
+
+    <div class="example">
+      <h3>Basic Effects</h3>
+      <div class="box">Hello, I'm a Box!</div>
+      <button id="hide-btn">Hide</button>
+      <button id="show-btn">Show</button>
+    </div>
+
+    <div class="example">
+      <h3>Fade Effects</h3>
+      <div class="box" id="fade-box">Fade Effect Box</div>
+      <button id="fade-out-btn">Fade Out</button>
+      <button id="fade-in-btn">Fade In</button>
+    </div>
+
+    <div class="example">
+      <h3>Slide Effects</h3>
+      <div class="box" id="slide-box">Slide Effect Box</div>
+      <button id="slide-up-btn">Slide Up</button>
+      <button id="slide-down-btn">Slide Down</button>
+    </div>
+
+    <div class="btn-container">
+      <a href="12.Ai ChatBot/index.html"><button class="doubt-btn">Ask a Doubt</button></a>
+    </div>
+
+    <div class="btn-container">
+      <a href="effecquiz.html"><button class="quiz-btn">Take Quiz</button></a>
+    </div>
+
+  </section>
+
+  <script>
+    $(document).ready(function () {
+      // Hide and Show Effects
+      $("#hide-btn").click(function () {
+        $(".box:first").hide();
+      });
+      $("#show-btn").click(function () {
+        $(".box:first").show();
+      });
+
+      // Fade Effects
+      $("#fade-out-btn").click(function () {
+        $("#fade-box").fadeOut("slow");
+      });
+      $("#fade-in-btn").click(function () {
+        $("#fade-box").fadeIn("slow");
+      });
+
+      // Slide Effects
+      $("#slide-up-btn").click(function () {
+        $("#slide-box").slideUp();
+      });
+      $("#slide-down-btn").click(function () {
+        $("#slide-box").slideDown();
+      });
+    });
+  </script>
+</body>
+</html>
